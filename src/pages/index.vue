@@ -24,7 +24,9 @@
       <input type="text" class="form-control" v-model.lazy="motto" placeholder="v-model.lazy" />
     </form>
     <a href="/pages/counter" class="counter">去往Vuex示例页面</a>
+    <a href="/packageA/logs" class="counter">去往packageA/logs</a>
   </div>
+
 </template>
 
 <script>

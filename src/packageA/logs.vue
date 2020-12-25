@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { formatTime } from '@/utils/index'
+import {formatTime} from '@/utils'
 import card from '@/components/card'
 
 export default {
@@ -34,10 +34,10 @@ export default {
 .log-list {
   display: flex;
   flex-direction: column;
-  padding: 40rpx;
+  padding: 20px;
 }
 
 .log-item {
-  margin: 10rpx;
+  margin: 5px;
 }
 </style>
