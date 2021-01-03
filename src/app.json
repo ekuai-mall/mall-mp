@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/home",
     {
       "path": "pages/index",
       "config": {
@@ -12,13 +13,41 @@
       "subPackage": true
     }
   ],
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "#1890ff",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/home",
+        "text": "首页",
+        "iconPath": "/static/navigator.png",
+        "selectedIconPath": "/static/navigator_blue.png"
+      },
+      {
+        "pagePath": "pages/counter",
+        "text": "商店",
+        "iconPath": "/static/shop.png",
+        "selectedIconPath": "/static/shop_blue.png"
+      },
+      {
+        "pagePath": "pages/counter",
+        "text": "我的",
+        "iconPath": "/static/user.png",
+        "selectedIconPath": "/static/user_blue.png"
+      }
+    ]
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "Loading",
     "navigationBarTextStyle": "black"
   },
   "usingComponents": {
-    "van-tag": "/vant-weapp/dist/tag/index"
+    "van-button": "/vant-weapp/button/index",
+    "van-tag": "/vant-weapp/tag/index",
+    "van-field": "/vant-weapp/field/index",
+    "van-icon": "/vant-weapp/icon/index"
   }
 }

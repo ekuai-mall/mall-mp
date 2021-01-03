@@ -2,7 +2,7 @@
   <div class="container" @click="clickHandle('test click', $event)">
 
     <div class="userinfo" @click="bindViewTap">
-      <img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
+      <img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover"/>
       <div class="userinfo-nickname">
         <card :text="userInfo.nickName"></card>
       </div>
@@ -20,11 +20,12 @@
     </div>
 
     <form class="form-container">
-      <input type="text" class="form-control" v-model="motto" placeholder="v-model" />
-      <input type="text" class="form-control" v-model.lazy="motto" placeholder="v-model.lazy" />
+      <input type="text" class="form-control" v-model="motto" placeholder="v-model"/>
+      <input type="text" class="form-control" v-model.lazy="motto" placeholder="v-model.lazy"/>
     </form>
     <a href="/pages/counter" class="counter">去往Vuex示例页面</a>
     <a href="/packageA/logs" class="counter">去往packageA/logs</a>
+    <van-button type="primary" @click="axios">$get</van-button>
   </div>
 
 </template>
@@ -63,6 +64,35 @@ export default {
         }
       })
     },
+    axios () {
+      this.$axios.$get('?_=info/getAll')
+        .then(response => {
+          // if (response.status === 200) {
+          //   let dat = response.data;
+          //   if (dat.status === 0) {
+          //     this.$store.commit("Run/updateGlobalInfo", dat["ret"]);
+          //   } else {
+          //     this.$error({
+          //       title: "服务器错误",
+          //       content: dat.status + "：" + dat["ret"],
+          //     });
+          //   }
+          // } else {
+          //   this.$error({
+          //     title: "网络错误",
+          //     content: response.status + "：" + response.statusText,
+          //   });
+          // }
+          console.log(response)
+        })
+      // .catch(error => {
+      // this.$error({
+      //   title: "网络错误",
+      //   content: error,
+      // });
+      // console.log(error);
+      // });
+    },
     clickHandle (msg, ev) {
       // eslint-disable-next-line
       console.log('clickHandle:', msg, ev)
@@ -84,16 +114,15 @@ export default {
 }
 
 .userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
+  width: 128 rpx;
+  height: 128 rpx;
+  margin: 20 rpx;
   border-radius: 50%;
 }
 
 .userinfo-nickname {
   color: #aaa;
 }
-
 
 .form-control {
   display: block;

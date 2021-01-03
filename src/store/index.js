@@ -2,6 +2,8 @@
 // make sure to call Vue.use(Vuex) if using a module system
 import Vue from 'vue'
 import Vuex from 'vuex'
+import User from '@/store/user'
+import Run from '@/store/run'
 
 Vue.use(Vuex)
 
@@ -18,6 +20,10 @@ const store = new Vuex.Store({
       const obj = state
       obj.count -= 1
     }
+  },
+  modules: {
+    User,
+    Run
   }
 })
 

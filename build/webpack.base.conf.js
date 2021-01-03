@@ -6,6 +6,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
+const ImportComponent = require('import-weapp-component')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -93,17 +94,18 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       {
-        from: path.resolve(__dirname, '../static'),
+        from: path.resolve(__dirname, '../src/static'),
         to: path.resolve(__dirname, '../dist/static'),
         ignore: ['.*']
       }
     ]),
-    new CopyWebpackPlugin([
-      {
-        from: resolve('node_modules/vant-weapp/dist'),
-        to: resolve('dist/vant-weapp/dist'),
-        ignore: ['.*']
-      }
-    ])
+    new ImportComponent({
+      src: path.resolve(__dirname, '../src'), // 引用组件或原生页面的目录
+      usingComponents: path.resolve(__dirname, '../src/app.json'), // mpvue-entry 配置路径
+      forceCopy:[
+		path.resolve(__dirname, '../vant-weapp/wxs'),
+		path.resolve(__dirname, '../vant-weapp/common/index.wxss')
+      ]
+    })
   ]
 }
