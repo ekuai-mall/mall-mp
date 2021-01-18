@@ -18,7 +18,7 @@
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
-    "useMultiFrameRuntime": false,
+    "useMultiFrameRuntime": true,
     "useApiHook": true,
     "babelSetting": {
       "ignore": [],
@@ -33,11 +33,12 @@
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
-    "minifyWXSS": true
+    "minifyWXSS": true,
+    "useApiHostProcess": false
   },
   "miniprogramRoot": "dist/",
   "compileType": "miniprogram",
-  "appid": "wx7daa48a6d90b3acf",
+  "appid": "wx63961db2a139dd27",
   "projectname": "mall-mp",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},

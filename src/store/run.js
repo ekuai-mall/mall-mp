@@ -3,8 +3,9 @@ const Run = {
   state: () => ({
     currentTab: [],
     wxAppId: '',
-    mallTitle: '',
-    homeImg: ''
+    mallTitle: 'Loading...',
+    homeImg: '',
+    currentSearch: ''
   }),
   mutations: {
     updateCurrentTab (state, e) {

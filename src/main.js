@@ -8,11 +8,7 @@ import AlertW from '@/utils/alertW'
 Vue.use(MpvueRouterPatch)
 Vue.use(AlertW)
 Vue.config.productionTip = false
-if (process.env.NODE_ENV === 'production') {
-  axios.defaults.baseURL = './api/'
-} else {
-  axios.defaults.baseURL = 'http://192.168.137.1/mall-api/index.php'
-}
+axios.defaults.baseURL = 'https://faka.lifestudio.cn/api/index.php'
 Vue.prototype['$axios'] = axios
 
 const app = new Vue({

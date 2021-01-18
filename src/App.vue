@@ -1,7 +1,6 @@
 <script>
 export default {
   created () {
-    // 调用API从本地缓存中获取数据
     const logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
@@ -11,6 +10,9 @@ export default {
           let dat = response.data
           if (dat.status === 0) {
             this.$store.commit('Run/updateGlobalInfo', dat['ret'])
+            wx.setNavigationBarTitle({
+              title: this.$store.state.Run.mallTitle
+            })
           } else {
             this.$error({
               title: '服务器错误',
@@ -24,14 +26,14 @@ export default {
           })
         }
         console.log(response)
-      }).catch(error => {
+      })
+      .catch(error => {
         this.$error({
           title: '网络错误',
           content: error
         })
         console.log(error)
       })
-    // eslint-disable-next-line
     console.log('app created and cache logs by setStorageSync')
   }
 }
@@ -46,6 +48,10 @@ export default {
   justify-content: space-between;
   padding: 100px 0;
   box-sizing: border-box;
+}
+
+.margin-10 {
+  margin: 10px;
 }
 
 * {

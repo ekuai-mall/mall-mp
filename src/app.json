@@ -1,6 +1,29 @@
 {
   "pages": [
-    "pages/home",
+    {
+      "path": "pages/home",
+      "config": {
+        "navigationBarTitleText": "Loading"
+      }
+    },
+    {
+      "path": "pages/search",
+      "config": {
+        "navigationBarTitleText": "商品搜索"
+      }
+    },
+    {
+      "path": "pages/user",
+      "config": {
+        "navigationBarTitleText": "我的"
+      }
+    },
+    {
+      "path": "pages/item",
+      "config": {
+        "navigationBarTitleText": "Loading"
+      }
+    },
     {
       "path": "pages/index",
       "config": {
@@ -25,13 +48,13 @@
         "selectedIconPath": "/static/navigator_blue.png"
       },
       {
-        "pagePath": "pages/counter",
+        "pagePath": "pages/search",
         "text": "商店",
         "iconPath": "/static/shop.png",
         "selectedIconPath": "/static/shop_blue.png"
       },
       {
-        "pagePath": "pages/counter",
+        "pagePath": "pages/user",
         "text": "我的",
         "iconPath": "/static/user.png",
         "selectedIconPath": "/static/user_blue.png"
@@ -48,6 +71,11 @@
     "van-button": "/vant-weapp/button/index",
     "van-tag": "/vant-weapp/tag/index",
     "van-field": "/vant-weapp/field/index",
-    "van-icon": "/vant-weapp/icon/index"
+    "van-icon": "/vant-weapp/icon/index",
+    "van-card": "/vant-weapp/card/index",
+    "van-loading": "/vant-weapp/loading/index",
+    "van-row": "/vant-weapp/row/index",
+    "van-col": "/vant-weapp/col/index",
+    "van-popup": "/vant-weapp/popup/index"
   }
 }
