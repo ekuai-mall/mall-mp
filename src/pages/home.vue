@@ -10,19 +10,21 @@
         use-button-slot
         @change="onChange"
       >
-        <van-button slot="button" size="small" type="primary" round icon="search" @click="search"></van-button>
+        <van-button slot="button" size="small" type="info" round icon="search" @click="search"></van-button>
       </van-field>
     </van-cell-group>
-    <swiper :indicator-dots="true"
-            :autoplay="true" :interval="10000" :duration="500">
+    <swiper :indicator-dots="true" :autoplay="true" :interval="10000" :duration="500">
       <div v-for="img in background" :key="img">
         <swiper-item>
           <div>
-            <image mode="aspectFill" class="swiper-img" :src="img"/>
+            <img mode="aspectFill" class="swiper-img" :src="img" alt=""/>
           </div>
         </swiper-item>
       </div>
     </swiper>
+    <div>
+      这里是首页
+    </div>
   </div>
 
 </template>

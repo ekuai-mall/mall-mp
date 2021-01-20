@@ -1,6 +1,6 @@
 <template>
   <div>
-    用户
+    注册
   </div>
 
 </template>
@@ -13,8 +13,8 @@ export default {
     username: '',
     password: ''
   }),
-  onShow () {
-    console.log('user show')
+  mounted () {
+
   },
   methods: {},
   computed: {

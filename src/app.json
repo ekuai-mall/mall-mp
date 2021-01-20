@@ -19,18 +19,23 @@
       }
     },
     {
+      "path": "pages/login",
+      "config": {
+        "navigationBarTitleText": "登陆"
+      }
+    },
+    {
+      "path": "pages/register",
+      "config": {
+        "navigationBarTitleText": "注册"
+      }
+    },
+    {
       "path": "pages/item",
       "config": {
         "navigationBarTitleText": "Loading"
       }
     },
-    {
-      "path": "pages/index",
-      "config": {
-        "navigationBarTitleText": "mall-mp"
-      }
-    },
-    "pages/counter",
     {
       "path": "packageA/logs",
       "subPackage": true
@@ -63,9 +68,9 @@
   },
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#1890ff",
     "navigationBarTitleText": "Loading",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   },
   "usingComponents": {
     "van-button": "/vant-weapp/button/index",
@@ -74,8 +79,10 @@
     "van-icon": "/vant-weapp/icon/index",
     "van-card": "/vant-weapp/card/index",
     "van-loading": "/vant-weapp/loading/index",
-    "van-row": "/vant-weapp/row/index",
-    "van-col": "/vant-weapp/col/index",
-    "van-popup": "/vant-weapp/popup/index"
+    "van-popup": "/vant-weapp/popup/index",
+    "van-field": "/vant-weapp/field/index",
+    "van-cell": "/vant-weapp/cell/index",
+    "van-cell-group": "/vant-weapp/cell-group/index",
+    "van-switch": "/vant-weapp/switch/index"
   }
 }

@@ -5,11 +5,15 @@ const Run = {
     wxAppId: '',
     mallTitle: 'Loading...',
     homeImg: '',
-    currentSearch: ''
+    currentSearch: '',
+    loginBack: false
   }),
   mutations: {
     updateCurrentTab (state, e) {
       state.currentTab = [e]
+    },
+    updateLoginBack (state, e) {
+      state.loginBack = e
     },
     updateGlobalInfo (state, e) {
       for (let val of e) {

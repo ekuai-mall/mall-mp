@@ -54,6 +54,18 @@ export default {
   margin: 10px;
 }
 
+.align-center {
+  text-align: center;
+}
+
+.margin-auto {
+  margin: auto;
+}
+
+.van-cell__title {
+  margin: auto;
+}
+
 * {
   transition: width 2s;
   -moz-transition: width 2s;

@@ -10,7 +10,7 @@
         use-button-slot
         @change="onChange"
       >
-        <van-button slot="button" size="small" type="primary" round icon="search" @click="search"></van-button>
+        <van-button slot="button" size="small" type="info" round icon="search" @click="search"></van-button>
       </van-field>
     </van-cell-group>
     <div>

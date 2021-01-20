@@ -16,7 +16,7 @@ let $warning = options => {
 }
 let $info = options => {
   wx.showToast({
-    title: '提示：' + options.title + options.content,
+    title: '提示：' + options.title + ',' + options.content,
     icon: 'none',
     duration: 2000
   })
@@ -24,7 +24,7 @@ let $info = options => {
 }
 let $success = options => {
   wx.showToast({
-    title: '成功：' + options.title + options.content,
+    title: '成功：' + options.title + ',' + options.content,
     icon: 'none',
     duration: 2000
   })
