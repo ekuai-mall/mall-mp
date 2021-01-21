@@ -37,6 +37,12 @@
       }
     },
     {
+      "path": "pages/wxpay",
+      "config": {
+        "navigationBarTitleText": "微信支付"
+      }
+    },
+    {
       "path": "packageA/logs",
       "subPackage": true
     }
@@ -83,6 +89,9 @@
     "van-field": "/vant-weapp/field/index",
     "van-cell": "/vant-weapp/cell/index",
     "van-cell-group": "/vant-weapp/cell-group/index",
-    "van-switch": "/vant-weapp/switch/index"
+    "van-switch": "/vant-weapp/switch/index",
+    "van-collapse": "/vant-weapp/collapse/index",
+    "van-collapse-item": "/vant-weapp/collapse-item/index",
+    "van-checkbox": "/vant-weapp/checkbox/index"
   }
 }

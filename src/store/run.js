@@ -6,7 +6,8 @@ const Run = {
     mallTitle: 'Loading...',
     homeImg: '',
     currentSearch: '',
-    loginBack: false
+    loginBack: false,
+    payOrder: ''
   }),
   mutations: {
     updateCurrentTab (state, e) {
@@ -14,6 +15,9 @@ const Run = {
     },
     updateLoginBack (state, e) {
       state.loginBack = e
+    },
+    updatePayOrder (state, e = '') {
+      state.payOrder = e
     },
     updateGlobalInfo (state, e) {
       for (let val of e) {

@@ -24,13 +24,13 @@
         </div>
         <div>
           <div v-for="(item,index) in itemInfo.child" :key="index" class="margin-10">
-            <van-button v-if="index==selected" type="info" @click="select(index)">{{ item.name }}</van-button>
+            <van-button v-if="index === selected" type="info" @click="select(index)">{{ item.name }}</van-button>
             <van-button v-else type="default" @click="select(index)">{{ item.name }}</van-button>
           </div>
         </div>
       </div>
     </div>
-    <van-popup :show="show" position="bottom" custom-style="" @close="onClose">
+    <van-popup :show="show" position="bottom" round custom-style="height:80%" @close="onClose">
       <div v-if="selected>-1" class="popContainer">
         <div class="margin-10">
           <img :src="itemInfo.child[selected].img" alt="" mode="aspectFit" style="width: 100%"/>
@@ -120,7 +120,10 @@ export default {
           title: '请先登录',
           content: '需要登陆后才可购买商品'
         })
-        this.$router.push({path: '/user/login', query: {redirect: this.$route.path}})
+        this.$store.commit('Run/updateLoginBack', true)
+        wx.navigateTo({
+          url: '/pages/login'
+        })
         return false
       } else if (this.selected === undefined || this.selected < 0 || this.selected >= this.itemInfo.child.length) {
         this.$info({
@@ -147,7 +150,10 @@ export default {
                 title: '下单成功',
                 content: '请在此页使用微信支付，有效期10分钟'
               })
-              this.$router.push('/pay/wechat/' + dat['ret'])
+              this.$store.commit('Run/updatePayOrder', dat['ret'])
+              wx.redirectTo({
+                url: '/pages/wxpay'
+              })
             } else {
               this.$error({
                 title: '下单失败',

@@ -1,6 +1,6 @@
 let $error = options => {
   wx.showToast({
-    title: '错误：' + options.title,
+    title: '错误：' + options.title + ',' + options.content,
     icon: 'none',
     duration: 2000
   })
@@ -8,7 +8,7 @@ let $error = options => {
 }
 let $warning = options => {
   wx.showToast({
-    title: '警告：' + options.title,
+    title: '警告：' + options.title + ',' + options.content,
     icon: 'none',
     duration: 2000
   })
