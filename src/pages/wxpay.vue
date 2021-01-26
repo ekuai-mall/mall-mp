@@ -14,6 +14,16 @@
         <van-cell title="下单时间" :label="time"/>
         <van-cell title="备注留言" :label="order.remark"/>
       </van-cell-group>
+      <div class="margin-10 align-center">
+        <div class="margin-10">
+          <van-button round type="info" @click="pay">支付</van-button>
+        </div>
+        <div class="margin-10">
+          <van-button :loading="checking" loading-text="查单中，请稍后..." :disabled="checking" round type="info" @click="checkOrder">
+            强制查单
+          </van-button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -24,7 +34,8 @@ export default {
   data: () => ({
     orderId: '',
     order: null,
-    onLoading: true
+    onLoading: true,
+    checking: false
   }),
   mounted () {
     this.orderId = this.$store.state.Run.payOrder
@@ -65,10 +76,60 @@ export default {
   },
   methods: {
     finish () {
-      console.log('wxpay finish')
+      this.$store.commit('Run/updatePayOrder', this.orderId)
+      wx.navigateTo({
+        url: '/pages/order'
+      })
     },
     init () {
       console.log('wxpay init')
+    },
+    pay () {
+      console.log('wxpay')
+    },
+    checkOrder () {
+      if (this.checking) {
+        return
+      }
+      this.checking = true
+      this.$axios.$post('?_=pay/checkOrder', {
+        order: this.orderId
+      }).then(response => {
+        if (response.status === 200) {
+          let dat = response.data
+          if (dat.status === 0) {
+            let status = dat['ret']
+            console.log(dat)
+            if (status === 'SUCCESS') {
+              this.finish()
+            } else {
+              this.$error({
+                title: '订单未支付',
+                content: '请检查支付状态或稍后重试'
+              })
+            }
+          } else {
+            this.$error({
+              title: '订单获取错误，请刷新页面重试',
+              content: dat['ret']
+            })
+          }
+        } else {
+          this.$error({
+            title: '网络错误',
+            content: response.status + '：' + response.statusText
+          })
+        }
+        console.log(response)
+        this.checking = false
+      }).catch(error => {
+        this.$error({
+          title: '网络错误',
+          content: error
+        })
+        console.log(error)
+        this.checking = false
+      })
     }
   },
   computed: {
@@ -86,12 +147,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.loading {
-  position: fixed;
-  top: 250px;
-  width: 100%;
-  text-align: center;
-}
-</style>

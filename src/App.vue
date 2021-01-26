@@ -9,7 +9,8 @@ export default {
         if (response.status === 200) {
           let dat = response.data
           if (dat.status === 0) {
-            this.$store.commit('Run/updateGlobalInfo', dat['ret'])
+            let globalInfo = [{key: 'init', value: true}, ...dat['ret']]
+            this.$store.commit('Run/updateGlobalInfo', globalInfo)
             wx.setNavigationBarTitle({
               title: this.$store.state.Run.mallTitle
             })
@@ -71,5 +72,12 @@ export default {
   -moz-transition: width 2s;
   -webkit-transition: width 2s;
   -o-transition: width 2s;
+}
+
+.loading {
+  position: fixed;
+  top: 250px;
+  width: 100%;
+  text-align: center;
 }
 </style>

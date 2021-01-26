@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div v-if="!init" class="loading">
+      <van-loading color="#1890ff"/>
+    </div>
     <van-cell-group>
       <van-field
         :value="searchText"
@@ -57,6 +60,9 @@ export default {
   computed: {
     background () {
       return JSON.parse(this.$store.state.Run.homeImg ? this.$store.state.Run.homeImg : '[]')
+    },
+    init () {
+      return this.$store.state.Run.init
     }
   }
 }

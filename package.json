@@ -11,13 +11,14 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "@vant/weapp": "^1.6.6",
     "axios": "^0.21.1",
     "axios-miniprogram-adapter": "^0.3.2",
     "mpvue": "^2.0.0",
     "mpvue-router-patch": "^2.0.0",
     "qs": "^6.9.4",
-    "vant-weapp": "^0.5.0",
-    "vuex": "^3.0.0"
+    "vuex": "^3.0.0",
+    "wxbarcode": "^1.0.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

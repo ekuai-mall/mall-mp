@@ -1,89 +1,86 @@
 <template>
-  <div class="align-center margin-10">
-    <div v-if="!login" class="login">
-      <div class="margin-10">
-        您还未登陆
+  <div>
+    <van-nav-bar :title="title">
+      <van-icon @click="toConfig" class="icon" name="setting-o" slot="right"/>
+    </van-nav-bar>
+    <div class="align-center margin-10">
+      <div v-if="!login" class="login">
+        <div class="margin-10">
+          <van-button round type="info" @click="toLogin">立即登陆</van-button>
+        </div>
       </div>
-      <div class="margin-10">
-        <van-button round type="info" @click="toLogin">立即登陆</van-button>
-      </div>
-    </div>
-    <div v-else>
-      <div class="margin-10">
-        欢迎回来，{{ username }}！
-      </div>
-      <hr>
-      <div>
-        <van-collapse accordion :value="activeName" data-change-name="activeName" @change="onChange">
-          <van-collapse-item title="个人信息" name="1">
-            <van-cell-group class="margin-10" v-if="showInfo">
-              <van-field
-                :value="form.contact"
-                label="联系方式"
-                placeholder="请输入联系方式"
-                data-change-name="contact"
-                @change="onChangeForm"
-              />
-              <div class="align-center margin-10">
-                <van-button round type="info" @click="saveInfo">保存</van-button>
+      <div v-else>
+        <div>
+          <van-collapse accordion :value="activeName" data-change-name="activeName" @change="onChange">
+            <van-collapse-item title="个人信息" name="1">
+              <van-cell-group class="margin-10" v-if="showInfo">
+                <van-field
+                  :value="form.contact"
+                  label="联系方式"
+                  placeholder="请输入联系方式"
+                  data-change-name="contact"
+                  @change="onChangeForm"
+                />
+                <div class="align-center margin-10">
+                  <van-button round type="info" @click="saveInfo">保存</van-button>
+                </div>
+              </van-cell-group>
+            </van-collapse-item>
+            <van-collapse-item title="修改密码" name="2">
+              <van-cell-group class="margin-10">
+                <van-field
+                  :value="password"
+                  type="password"
+                  label="原密码"
+                  placeholder="请输入原密码"
+                  required
+                  data-change-name="password"
+                  @change="onChange"
+                />
+                <van-field
+                  :value="password1"
+                  type="password"
+                  label="新密码"
+                  placeholder="请输入新密码"
+                  required
+                  data-change-name="password1"
+                  @change="onChange"
+                />
+                <van-field
+                  :value="password2"
+                  type="password"
+                  label="重复密码"
+                  placeholder="请输入新密码"
+                  required
+                  data-change-name="password2"
+                  @change="onChange"
+                />
+                <div class="align-center margin-10">
+                  <van-button round type="info" @click="newPass">保存</van-button>
+                </div>
+              </van-cell-group>
+            </van-collapse-item>
+            <van-collapse-item title="绑定微信" name="3">
+              抱歉，微信小程序端不支持该功能，请在网页端操作
+            </van-collapse-item>
+            <van-collapse-item title="我的订单" name="4">
+              <van-button round type="info" @click="toOrderList">查看我的订单</van-button>
+            </van-collapse-item>
+            <van-collapse-item title="退出登陆" name="5">
+              <div class="margin-10">
+                <van-checkbox :value="cancelAutoLogin" shape="square" data-change-name="cancelAutoLogin" @change="onChange">
+                  取消自动登陆
+                </van-checkbox>
               </div>
-            </van-cell-group>
-          </van-collapse-item>
-          <van-collapse-item title="修改密码" name="2">
-            <van-cell-group class="margin-10">
-              <van-field
-                :value="password"
-                type="password"
-                label="原密码"
-                placeholder="请输入原密码"
-                required
-                data-change-name="password"
-                @change="onChange"
-              />
-              <van-field
-                :value="password1"
-                type="password"
-                label="新密码"
-                placeholder="请输入新密码"
-                required
-                data-change-name="password1"
-                @change="onChange"
-              />
-              <van-field
-                :value="password2"
-                type="password"
-                label="重复密码"
-                placeholder="请输入新密码"
-                required
-                data-change-name="password2"
-                @change="onChange"
-              />
-              <div class="align-center margin-10">
-                <van-button round type="info" @click="newPass">保存</van-button>
+              <div class="margin-10">
+                <van-button round type="info" @click="quitLogin">退出登陆</van-button>
               </div>
-            </van-cell-group>
-          </van-collapse-item>
-          <van-collapse-item title="绑定微信" name="3">
-            抱歉，微信小程序端不支持该功能，请在网页端操作
-          </van-collapse-item>
-          <van-collapse-item title="我的订单" name="4">
-            <van-button round type="info" @click="toOrderList">查看我的订单</van-button>
-          </van-collapse-item>
-          <van-collapse-item title="退出登陆" name="5">
-            <div class="margin-10">
-              <van-checkbox :value="cancelAutoLogin" shape="square" data-change-name="cancelAutoLogin" @change="onChange">
-                取消自动登陆
-              </van-checkbox>
-            </div>
-            <div class="margin-10">
-              <van-button round type="info" @click="quitLogin">退出登陆</van-button>
-            </div>
-          </van-collapse-item>
-        </van-collapse>
+            </van-collapse-item>
+          </van-collapse>
+        </div>
       </div>
     </div>
   </div>
-
 </template>
 
 <script>
@@ -260,9 +257,13 @@ export default {
       })
     },
     toOrderList () {
-      this.$error({
-        title: '系统错误',
-        content: '暂不支持该功能，请使用网页端'
+      wx.navigateTo({
+        url: '/pages/orderList'
+      })
+    },
+    toConfig () {
+      wx.navigateTo({
+        url: '/pages/cfg'
       })
     },
     onChange (e) {
@@ -281,6 +282,13 @@ export default {
     },
     contact () {
       return this.form.contact
+    },
+    title () {
+      if (this.login) {
+        return '欢迎回来，' + this.username + '！'
+      } else {
+        return '您还未登陆'
+      }
     }
   }
 }
@@ -291,5 +299,10 @@ export default {
   position: absolute;
   top: 200px;
   width: 100%;
+}
+
+.icon {
+  color: #1890ff;
+  font-size: x-large;
 }
 </style>

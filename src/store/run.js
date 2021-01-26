@@ -7,7 +7,8 @@ const Run = {
     homeImg: '',
     currentSearch: '',
     loginBack: false,
-    payOrder: ''
+    payOrder: '',
+    init: false
   }),
   mutations: {
     updateCurrentTab (state, e) {

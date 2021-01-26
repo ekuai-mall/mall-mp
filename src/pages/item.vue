@@ -181,13 +181,6 @@ export default {
 </script>
 
 <style scoped>
-.loading {
-  position: fixed;
-  top: 250px;
-  width: 100%;
-  text-align: center;
-}
-
 .detailContainer {
   text-align: center;
   margin: 10px;

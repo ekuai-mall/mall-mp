@@ -13,10 +13,14 @@
         <van-button slot="button" size="small" type="info" round icon="search" @click="search"></van-button>
       </van-field>
     </van-cell-group>
-    <div>
+    <div v-if="!items.length" class="loading">
+      <van-loading color="#1890ff"/>
+    </div>
+    <div v-else>
       <div class="item-container" v-for="(item,index) in items" :key="index" @click="redirect(item.id)">
         <van-card :desc="item.detail" :title="item.name" :thumb="item.img[0].img"/>
       </div>
+      <van-empty description="到达了数据的尽头"/>
     </div>
   </div>
 </template>
@@ -38,6 +42,7 @@ export default {
   },
   methods: {
     search () {
+      this.items = []
       this.$axios.$post('?_=item/search', {
         key: this.searchText
       }).then(response => {

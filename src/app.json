@@ -43,6 +43,24 @@
       }
     },
     {
+      "path": "pages/cfg",
+      "config": {
+        "navigationBarTitleText": "设置"
+      }
+    },
+    {
+      "path": "pages/orderList",
+      "config": {
+        "navigationBarTitleText": "订单列表"
+      }
+    },
+    {
+      "path": "pages/order",
+      "config": {
+        "navigationBarTitleText": "Loading"
+      }
+    },
+    {
       "path": "packageA/logs",
       "subPackage": true
     }
@@ -86,12 +104,14 @@
     "van-card": "/vant-weapp/card/index",
     "van-loading": "/vant-weapp/loading/index",
     "van-popup": "/vant-weapp/popup/index",
-    "van-field": "/vant-weapp/field/index",
     "van-cell": "/vant-weapp/cell/index",
     "van-cell-group": "/vant-weapp/cell-group/index",
     "van-switch": "/vant-weapp/switch/index",
     "van-collapse": "/vant-weapp/collapse/index",
     "van-collapse-item": "/vant-weapp/collapse-item/index",
-    "van-checkbox": "/vant-weapp/checkbox/index"
+    "van-checkbox": "/vant-weapp/checkbox/index",
+    "van-nav-bar": "/vant-weapp/nav-bar/index",
+    "van-empty": "/vant-weapp/empty/index",
+    "van-divider": "/vant-weapp/divider/index"
   }
 }

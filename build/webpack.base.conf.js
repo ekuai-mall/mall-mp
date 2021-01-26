@@ -104,7 +104,8 @@ module.exports = {
       usingComponents: path.resolve(__dirname, '../src/app.json'), // mpvue-entry 配置路径
       forceCopy:[
 		path.resolve(__dirname, '../vant-weapp/wxs'),
-		path.resolve(__dirname, '../vant-weapp/common/index.wxss')
+		path.resolve(__dirname, '../vant-weapp/mixins'),
+		path.resolve(__dirname, '../vant-weapp/common')
       ]
     })
   ]
